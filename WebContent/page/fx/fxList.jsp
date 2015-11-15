@@ -1,12 +1,12 @@
-<%@ page language="java" pageEncoding="Shift_JIS" %>
-<%@ page contentType="text/html;charset=Shift_JIS" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Pragma" content="no-cache">
 <meta name="content-language" content="ja">
 <title>Rate Page!</title>
@@ -15,11 +15,11 @@
 <body marginwidth="10" marginheight="10" leftmargin="10" topmargin="10">
 <table border="1">
 	<tr>
-		<td>日付</td>
-		<td>始値</td>
-		<td>高値</td>
-		<td>安値</td>
-		<td>終値</td>
+		<td>譌･莉�</td>
+		<td>蟋句､</td>
+		<td>鬮伜､</td>
+		<td>螳牙､</td>
+		<td>邨ょ､</td>
 	</tr>
 	<logic:iterate id="listData" name="listRate">
 	<tr>
