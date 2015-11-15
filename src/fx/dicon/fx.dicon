@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+  "http://www.seasar.org/dtd/components21.dtd">
+<components namespace="manage">
+	<include path="fx/dicon/fx.dao.dicon" />
+
+	<component name="chain" class="org.seasar.framework.aop.interceptors.InterceptorChain">
+		<initMethod name="add"><arg>j2ee.requiredTx</arg></initMethod>
+	</component>
+
+	<component
+		class="org.seasar.framework.container.autoregister.FileSystemComponentAutoRegister">
+		<property name="autoNaming">
+			<component
+				class="org.seasar.framework.container.autoregister.DefaultAutoNaming" />
+		</property>
+		<initMethod name="addClassPattern">
+			<arg>"fx.logic.impl"
+			</arg>
+			<arg>".*LogicImpl"</arg>
+		</initMethod>
+	</component>
+
+	<component
+		class="org.seasar.framework.container.autoregister.FileSystemComponentAutoRegister">
+		<property name="instanceDef">
+			@org.seasar.framework.container.deployer.InstanceDefFactory@REQUEST
+		</property>
+		<property name="autoNaming">
+			<component
+				class="org.seasar.framework.container.autoregister.DefaultAutoNaming" />
+		</property>
+		<initMethod name="addClassPattern">
+			<arg>"fx.action.impl"</arg>
+			<arg>".*ActionImpl"</arg>
+		</initMethod>
+	</component>
+	
+	<component class="org.seasar.framework.container.autoregister.AspectAutoRegister">
+		<property name="interceptor">chain</property>
+		<initMethod name="addClassPattern">
+			<arg>"fx.action.impl"</arg>
+			<arg>".*LogicImpl"</arg>
+		</initMethod>
+	</component>
+</components>
