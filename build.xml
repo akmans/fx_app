@@ -127,11 +127,11 @@
     </taskdef>
 
     <target name="install" depends="war" description="Install application in Tomcat">
-        <tomcatdeploy url="${tomcat.manager.url}/text"
+        <install url="${tomcat.manager.url}/text"
                  username="${tomcat.manager.username}"
                  password="${tomcat.manager.password}"
                  path="/${name}"
-                 war="${name}.war"
+                 localWar="${name}.war"
                  update="true"/>
     </target>
 
