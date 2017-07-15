@@ -61,6 +61,15 @@
         </copy>
     </target>
 
+    <target name="war" depends="build" description="Create war file">
+        <war destfile="${name}.war"
+             webxml="${web.dir}/WEB-INF/web.xml">
+            <fileset dir="${web.dir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </war>
+    </target>
+
     <target name="deploy" depends="build" description="Deploy application">
         <copy todir="${deploy.path}/${name}" preservelastmodified="true">
             <fileset dir="${web.dir}">
@@ -69,13 +78,7 @@
         </copy>
     </target>
 
-    <target name="deploywar" depends="build" description="Deploy application as a WAR file">
-        <war destfile="${name}.war"
-             webxml="${web.dir}/WEB-INF/web.xml">
-            <fileset dir="${web.dir}">
-                <include name="**/*.*"/>
-            </fileset>
-        </war>
+    <target name="deploywar" depends="war" description="Deploy application as a WAR file">
         <copy todir="${deploy.path}" preservelastmodified="true">
             <fileset dir=".">
                 <include name="*.war"/>
@@ -123,7 +126,7 @@
         <classpath refid="catalina-ant-classpath"/>
     </taskdef>
 
-    <target name="install" description="Install application in Tomcat">
+    <target name="install" depends="war" description="Install application in Tomcat">
         <install url="${tomcat.manager.url}/text"
                  username="${tomcat.manager.username}"
                  password="${tomcat.manager.password}"
