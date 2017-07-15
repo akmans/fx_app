@@ -22,4 +22,4 @@ fx.war
 /WebContent/WEB-INF/classes
 
 # Ignore libraries folder
-/WebContent/WEB-INF/lib
+#/WebContent/WEB-INF/lib
