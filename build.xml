@@ -127,7 +127,7 @@
         <install url="${tomcat.manager.url}/text"
                  username="${tomcat.manager.username}"
                  password="${tomcat.manager.password}"
-                 path="/${name}"
+                 path="."
                  war="${name}.war"/>
     </target>
 
